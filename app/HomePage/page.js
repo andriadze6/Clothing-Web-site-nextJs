@@ -1,17 +1,17 @@
 import Image from "next/image";
-import Header from "./components/Header";
-import './assets/css/Header.css'
-import './assets/css/homePage.css';
-import img1 from './assets/img/homePageImg/clothing-1.png';
-import img2 from './assets/img/homePageImg/clothing-2.png';
-import img3 from './assets/img/homePageImg/clothing-3.png';
-import img4 from './assets/img/homePageImg/clothing-4.png';
-import img5 from './assets/img/homePageImg/clothing-5.png';
+import Header from "../components/Header";
+import '../assets/css/homePage.css';
+import img1 from '../assets/img/homePageImg/clothing-1.png';
+import img2 from '../assets/img/homePageImg/clothing-2.png';
+import img3 from '../assets/img/homePageImg/clothing-3.png';
+import img4 from '../assets/img/homePageImg/clothing-4.png';
+import img5 from '../assets/img/homePageImg/clothing-5.png';
 
 
 function HomePage(){
     return(
         <div>
+            <Header></Header>
             <div className="homePage-Div">
                 <div className="main-Slider">
                     <div className="home__circle">
