@@ -1,11 +1,9 @@
 
 import '../assets/css/contactPage.css'
-import Header from '../components/Header';
 
 function ContactPage(){
     return(
         <div>
-            <Header></Header>
             <div className="contacPage-div">
                 <h1>Contac us</h1>
                 <div></div>

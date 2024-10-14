@@ -1,12 +1,9 @@
-import Header from "../components/Header";
-import { Link } from 'react-router-dom';
 import '../assets/css/myAccount.css';
-import MyAccountManue from "../components/MyAccountManue";
+import MyAccountManue from '../components/MyAccountManue';
 
 function MyAccount(){
     return(
         <>
-            <Header></Header>
             <div className="myAccount-Div">
                 <MyAccountManue></MyAccountManue>
                 <div id="address">

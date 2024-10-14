@@ -62,7 +62,7 @@
     transition: all .5s ease-out;
 }
 .userProfile li{
-    background: radial-gradient(circle, rgba(76,129,144,1) 28%, rgba(40,24,52,0.9360119047619048) 100%);
+    background: radial-gradient(circle, rgba(243,230,132,0.7819502801120448) 29%, rgba(22,176,212,0.9360119047619048) 85%);    display: grid;
     cursor: pointer;
     list-style-type: none;
     text-align: center;

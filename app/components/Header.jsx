@@ -36,7 +36,7 @@ function Header(){
                             <Image className='userImg' src={userImg} alt="" />
                         </div>
                         <ul className='userProfile'>
-                            <Link href='/myAccount' className='navName'><li>My Account &#129171;</li></Link>
+                            <Link href='/MyAccount' className='navName'><li>My Account &#129171;</li></Link>
                             <Link href='' className='navName'><li>Check out &#129171;</li></Link>
                             <Link href='' className='navName'><li>Shopping cart &#129171;</li></Link>
                             <Link href='' className='navName'><li>Wish list &#129171;</li></Link>
@@ -165,13 +165,13 @@ function Header(){
                         </div>
                     </div>
                     <div className='navName-div'>
-                        <Link href='/aboutUs' className='navName'>About us</Link>
+                        <Link href='/AboutUs' className='navName'>About us</Link>
                     </div>
                     <div className='navName-div'>
-                        <Link href='/contact' className='navName'>Contact</Link>
+                        <Link href='/Contact' className='navName'>Contact</Link>
                     </div>
                     <div className='navName-div'>
-                        <Link href='/blog' className='navName'>Blog</Link>
+                        <Link href='/BlogPage' className='navName'>Blog</Link>
                     </div>
                 </nav>
             </div>
