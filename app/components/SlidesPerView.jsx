@@ -26,6 +26,7 @@ export default function Slider(props) {
     }
 
     function handlePrevClick() {
+        ///test
         if (sliderState.clickAmount > 0) {
             var width = 100 / sliderToShow;
             setSliderState({
