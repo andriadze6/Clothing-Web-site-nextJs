@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 export default function Slider(props) {
-    debugger
     const router = useRouter();
 
     const [sliderState, setSliderState] = useState({

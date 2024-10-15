@@ -9,7 +9,8 @@ import img3 from '../assets/img/homePageImg/clothing-3.png';
 import img4 from '../assets/img/homePageImg/clothing-4.png';
 import img5 from '../assets/img/homePageImg/clothing-5.png';
 
-import Slider from '../components/SlidesPerView'
+import Slider from '../components/SlidesPerView';
+import ShopLayout from "../components/ShopLayout";
 
 function HomePage(){
 
@@ -21,7 +22,6 @@ function HomePage(){
 
     useEffect(()=>{
         (async function GetHomePageData() {
-            debugger
             const [woman, man] = await Promise.all([
                 fetch('https://dummyjson.com/products/category/womens-dresses'),
                 fetch('https://dummyjson.com/products/category/mens-shirts')
@@ -29,7 +29,6 @@ function HomePage(){
             let [manT, womanT] = await Promise.all([
                 man.json(), woman.json()
             ])
-            debugger
             setTrendingData(prevState=>({
                 ...prevState,
                 womanTrending:womanT.products,
@@ -99,6 +98,7 @@ function HomePage(){
                     ) : (
                         <Slider obj={trendingData.manTrending} gender="man" />
                     )}
+                    <ShopLayout></ShopLayout>
                 </div>     
             </div>   
         </>

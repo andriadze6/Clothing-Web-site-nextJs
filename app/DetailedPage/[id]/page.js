@@ -82,39 +82,37 @@ export default function ProductPage({ params }) {
                                 </div>
                             </div>
                             <div className='button-Div'>
-                                <div>
-                                    <div className='amount-Div'>
-                                        <span>Quantity:</span>
-                                        <select id="Quantity">
-                                            {Array.from({ length: productData.stock }, (_, i) => (
-                                                <option key={i + 1} value={i + 1}>
-                                                    {i + 1}
-                                                </option>
-                                            ))}
-                                        </select>
-                                    </div>
-                                    <div className="">
-                                        <button id="addTocard" type="submit">
-                                            <FontAwesomeIcon icon={faShoppingBag} className="bag-icon" />
-                                            <FontAwesomeIcon icon={faCircleNotch} spin className="spinner-icon" />                                        Add to cart new
-                                        </button>
-                                    </div>
-                                    <div class="">
-                                        <button id="addWishList" type="submit" >
-                                            <FontAwesomeIcon icon={faHeartOutline} className="heart-icon" />
-                                            <FontAwesomeIcon icon={faCircleNotch} spin className="spinner-icon" />                                        Add to cart new
-                                            Add To Wish list
-                                        </button>
-                                        {/* <div class="addToCard-massageDiv">
-                                            <div class="addToCard-massage">
-                                                <img class="check-icon" src="/img/myicon/check-icon.png">
-                                                <span>Added to Cart</span>
-                                            </div>
-                                        </div> */}
-                                    </div>
+                                <div className='amount-Div'>
+                                    <span>Quantity:</span>
+                                    <select id="Quantity">
+                                        {Array.from({ length: productData.stock }, (_, i) => (
+                                            <option key={i + 1} value={i + 1}>
+                                                {i + 1}
+                                            </option>
+                                        ))}
+                                    </select>
+                                </div>
+                                <div className="">
+                                    <button id="addTocard" type="submit">
+                                        <FontAwesomeIcon icon={faShoppingBag} className="bag-icon" />
+                                        <FontAwesomeIcon icon={faCircleNotch} spin className="spinner-icon" />                                        
+                                        Add to cart
+                                    </button>
+                                </div>
+                                <div class="">
+                                    <button id="addWishList" type="submit" >
+                                        <FontAwesomeIcon icon={faHeartOutline} className="heart-icon" />
+                                        <FontAwesomeIcon icon={faCircleNotch} spin className="spinner-icon" />
+                                        Add To Wish list
+                                    </button>
+                                    {/* <div class="addToCard-massageDiv">
+                                        <div class="addToCard-massage">
+                                            <img class="check-icon" src="/img/myicon/check-icon.png">
+                                            <span>Added to Cart</span>
+                                        </div>
+                                    </div> */}
                                 </div>
                             </div>
-
                             <div className='button-Div'>
                                 <button id="toCheckout" class="button" type="submit">
                                     <FontAwesomeIcon icon={faShoppingCart} className="shopping-cart-icon" />

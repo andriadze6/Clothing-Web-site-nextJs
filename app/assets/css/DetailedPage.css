@@ -44,7 +44,10 @@
 .aboout-ProductDiv, .prduct-Title, .aboout-ProductDiv p, .product-Details, .button-Div{
     margin-bottom: 10px;
 }
-
+.button-Div{
+    display: flex;
+    justify-content: space-around;
+}
 .details-div{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
