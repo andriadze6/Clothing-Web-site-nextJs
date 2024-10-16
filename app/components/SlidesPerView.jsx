@@ -2,10 +2,9 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Card from './Card';
 
 export default function Slider(props) {
-    const router = useRouter();
-
     const [sliderState, setSliderState] = useState({
         clickAmount: 0,
         transferX:0
@@ -34,9 +33,9 @@ export default function Slider(props) {
             })
         }
     } 
-    function handleProductClick(id){
-        router.push(`/DetailedPage/${id}`)
-    }   
+    // function handleProductClick(id){
+    //     router.push(`/DetailedPage/${id}`)
+    // }   
     return (
         <>
             <div className="tranding-Swiper-Conteiner">
@@ -53,14 +52,8 @@ export default function Slider(props) {
                                     }}
                                     key={elemnt.id} // Fix key warning
                                     className={`slider${index} img1`}
-                                    onClick={()=>handleProductClick(elemnt.id)}
                                 >
-                                    <Image
-                                        alt={`Slide ${index + 1}`}
-                                        width={500}
-                                        height={500}
-                                        src={elemnt.images[0]}
-                                    />
+                                    <Card Product={elemnt}></Card>
                                 </div>
                             );
                         })

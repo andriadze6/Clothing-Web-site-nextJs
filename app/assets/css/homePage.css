@@ -17,6 +17,10 @@
     width: 100%;
     min-height: 600px
 }
+.slider{
+    margin: 0 auto;
+    flex: 0 0 calc(100%/3);
+}
 .home__circle {
     position: absolute;
     inset: 0;
@@ -46,7 +50,7 @@
 .home__swiper, .home__circle, .home__subcircle, .home__title {
     opacity: 0;
     transform: translateY(60px);
-    animation: revealAnimation 2.5s ease forwards;
+    animation: revealAnimation 1.5s ease forwards;
 }
 @keyframes revealAnimation {
     to{
@@ -56,11 +60,11 @@
 }
 /* Specific animations with delays */
 .home__circle {
-    animation: scaleUp 2.5s ease forwards 0.3s; /* delay of 300ms */
+    animation: scaleUp 1.5s ease forwards 0.3s; /* delay of 300ms */
 }
 
 .home__subcircle {
-    animation: scaleUp 2.5s ease forwards 0.5s; /* delay of 500ms */
+    animation: scaleUp 1.5s ease forwards 0.5s; /* delay of 500ms */
 }
 
 .home__title {
@@ -89,13 +93,13 @@
 }
 
 .home__img{
-    width: 250px;
-    height: 250px;
+    width: 100%;
+    height: 100%;
     filter: drop-shadow(rgba(31, 22, 10, 0.4) -8px 8px 16px);
     margin: 0px auto 2rem;
 }
 .swiper{
-    width: 40%;
+    width: 60%;
     overflow: hidden;
 }
 .swiper-wrapper{

@@ -1,47 +1,9 @@
-'Use client'
+import Card from './Card';
 import '../assets/css/shopLayout.css'
-import Image from "next/image";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart as faHeartOutline } from '@fortawesome/free-regular-svg-icons';
-import { useEffect, useState } from 'react';
-import { faStar } from '@fortawesome/free-solid-svg-icons';
-
-
-function ShopLayout(){
-    const [product, setProduct] = useState([]);
-    const [fProduct, setFProduct] = useState([]);
-    const [searchField, setSearchField] = useState('');
-
-    useEffect(()=>{
-        (async function GetHomePageData() {
-            debugger
-            const data = await fetch('https://dummyjson.com/products')
-            const dataJson = await data.json();
-            setProduct(dataJson.products)
-        })();
-    },[]);    
-    useEffect(() => {
-        const newFilteredProduct = product.filter((pro) => {
-            debugger
-            var tags = pro.tags
-            let reult = tags.some((element)=>element.includes(searchField.toLocaleLowerCase()));
-            return reult
-        });
-    
-        setFProduct(newFilteredProduct);
-      }, [product, searchField]);
-    
-      const onSearchChange = (event) => {
-        const searchFieldString = event.target.value.toLocaleLowerCase();
-        setSearchField(searchFieldString);
-      };
+async function ShopLayout({Product}){   
+    console.log("ShopLayout");  
     return(
         <div className='shopLayout'>
-            <input
-                type='search'
-                placeholder="searh products"
-                onChange={onSearchChange}
-            />           
             <div className="shop_toolbar_wrapper">
                 <div className="shop_toolbar_btn">
                     <button type="button" className="btn-grid-3" title="3"></button>
@@ -59,30 +21,10 @@ function ShopLayout(){
             </div>
             <div className='cardList'>
                 {
-                    fProduct.length > 0 &&(
-                        fProduct.map((element)=>{
+                    Product.length > 0 &&(
+                        Product.map((element)=>{
                             return(
-                                <div className='card' key={element.id}>
-                                    <div className='cardImg'>
-                                        <Image alt='' src={element.images[0]} width={268} height={400}/>
-                                    </div>
-                                    <div className='product_content-header'>
-                                        <h4>{element.title}</h4>
-                                        <FontAwesomeIcon icon={faHeartOutline} className="heart-icon" />
-                                    </div>
-                                    <div className='product_price_rating'>
-                                        <h4><span>$</span>{element.price}</h4>
-                                        <div className='product_rating'>
-                                            <ul>
-                                                <li><FontAwesomeIcon icon={faStar} className="star-icon" /></li>
-                                                <li><FontAwesomeIcon icon={faStar} className="star-icon" /></li>
-                                                <li><FontAwesomeIcon icon={faStar} className="star-icon" /></li>
-                                                <li><FontAwesomeIcon icon={faStar} className="star-icon" /></li>
-                                                <li><FontAwesomeIcon icon={faStar} className="star-icon" /></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
+                                <Card key={element.id} Product={element}></Card>
                             )
                         })
                     )

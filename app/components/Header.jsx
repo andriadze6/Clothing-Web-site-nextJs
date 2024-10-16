@@ -2,12 +2,12 @@ import '../assets/css/Header.css'
 import instagramIcon from '../assets/img/InstagramIcon.png'
 import facebookIcon from '../assets/img/facebookIcon.png';
 import twitterIcon from '../assets/img/twitterIcon.png';
-import searchIcon from '../assets/img/icon-search.png';
 import logo from '../assets/img/Logo.png';
 import cartIcon from '../assets/img/icon-cart.png';
 import userImg from '../assets/img/UserImg.jpg'
 import Image from "next/image";
 import Link from 'next/link';
+import Search from './SearchInput';
 
 function Header(){
     return(
@@ -47,10 +47,7 @@ function Header(){
             </div>
             <div className='header2-div'>
                 <div className='header2-content'>
-                    <div className='search-Div'>
-                        <input placeholder='Search...' className='search-input'/>
-                        <button id='search-button'><Image src={searchIcon} alt="" /></button>
-                    </div>
+                    <Search></Search>
                     <div className='Logo-Div'>
                         <Image className='header-logo-img' src={logo} alt="" />
                     </div>
@@ -69,12 +66,12 @@ function Header(){
                         <Link href="/" className='navName'>Home</Link>
                     </div>
                     <div className='navName-div'>
-                        <Link href='' className='navName'>Women <i className="fa fa-angle-down"></i></Link>
+                        <Link href='/ShopLayout/woman/' className='navName'>Women <i className="fa fa-angle-down"></i></Link>
                         <div className='drop-down-manu'>
                             <div>
                                 <h3 className='category-name'>Clothing</h3>
                                 <ul>
-                                    <li>Shirt</li>
+                                    <Link href={`/ShopLayout/woman/womens-dresses`}><li>Dresses</li></Link>
                                     <li>Tops</li>
                                     <li>Jeans</li>
                                     <li>View all</li>
