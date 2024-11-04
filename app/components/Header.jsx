@@ -1,16 +1,66 @@
+'use client'
 import '../assets/css/Header.css'
+// import  {useTheme}  from '../hooks/useTheme';
+import {useContext, useEffect, useState} from 'react';
+import {ThemeContext} from '../providers/ThemeProvider'
+import { ThemeProvider } from '../providers/ThemeProvider';
 import instagramIcon from '../assets/img/InstagramIcon.png'
 import facebookIcon from '../assets/img/facebookIcon.png';
 import twitterIcon from '../assets/img/twitterIcon.png';
 import logo from '../assets/img/Logo.png';
 import cartIcon from '../assets/img/icon-cart.png';
-import userImg from '../assets/img/UserImg.jpg'
 import Image from "next/image";
 import Link from 'next/link';
 import Search from './SearchInput';
-
+import UserDropDownList from './UserdropDownManue';
+import { useSearchParams } from 'next/navigation';
 function Header(){
+    const context = useContext(ThemeContext)
+    const [theme, setTheme] = useState(()=>{
+        document.documentElement.classList.toggle(
+            'dark',
+            localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+          )
+        // Otherwise, use the system theme as a fallback
+        return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    });
+     function changeTheme(){
+        try {
+            debugger
+            if(theme){
+                if(theme === 'dark'){
+                    localStorage.setItem('theme', "light");
+                    let body = document.body.classList;
+                    body.remove("dark");
+                    body.add("light");
+                    setTheme("light")
+                }
+                else{
+                    localStorage.setItem('theme', "dark");
+                    let body = document.body.classList;
+                    body.remove("light");
+                    body.add("dark");
+                    setTheme("dark");
+                }
+            }
+            else{
+                const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+                let body = document.body.classList;
+                body.remove(systemTheme);
+                localStorage.setItem("theme", systemTheme);
+                setTheme(systemTheme);
+            }
+        } catch (error) {
+            localStorage.setItem('theme', "light");
+            let body = document.body.classList;
+            body.remove("dark");
+            body.add("light");
+            setTheme("light")
+        }
+     }
+
     return(
+        <ThemeProvider>
         <header>
             <div className="header1-Div">
                 <div className='header1-content'>
@@ -28,20 +78,11 @@ function Header(){
                         <Image src={instagramIcon} alt=''/>
                         <Image src={twitterIcon} alt=''/>
                     </div>
-                    <div className='login-Account'>
-                        <button className='sign-button'>Sign up</button>
-                    </div>
-                    <div className='user'>
-                        <div className='userImg-div'>
-                            <Image className='userImg' src={userImg} alt="" />
+                    <div style={{display:"flex",gap:"10px", alignItems:"center", justifyContent:"end"}}>
+                        <div>
+                            <p onClick={changeTheme} style={{cursor:'pointer'}}>Change theme</p>
                         </div>
-                        <ul className='userProfile'>
-                            <Link href='/MyAccount' className='navName'><li>My Account &#129171;</li></Link>
-                            <Link href='' className='navName'><li>Check out &#129171;</li></Link>
-                            <Link href='' className='navName'><li>Shopping cart &#129171;</li></Link>
-                            <Link href='' className='navName'><li>Wish list &#129171;</li></Link>
-                            <Link href='' className='navName'><li>Log out</li></Link>           
-                        </ul>
+                        <UserDropDownList></UserDropDownList>
                     </div>
                 </div>
             </div>
@@ -53,10 +94,10 @@ function Header(){
                     </div>
                     <div className='cart-Div'>
                         <div className='img-container'>
-                            <Image className='header-logo-img' src={cartIcon} alt="" /> 
+                            <Image className='header-logo-img' src={cartIcon} alt="" />
                             <p id='HeaderCartID'>6</p>
                         </div>
-                        <p>Item(s) - <span>50$</span></p>                   
+                        <p>Item(s) - <span>50$</span></p>
                     </div>
                 </div>
             </div>
@@ -173,6 +214,7 @@ function Header(){
                 </nav>
             </div>
         </header>
+        </ThemeProvider>
     )
 }
 export default Header;

@@ -1,3 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  transition: background 1s linear, color 0.4s ease;
+}
+body.light {
+  background: #ffffff;
+  --foreground: #171717;
+}
+
+body.dark {
+  --background: radial-gradient(circle, rgba(17,17,18,0.992) 0%, rgba(23,23,38,1) 35%, rgba(37,88,99,1) 100%);
+  --foreground: #ededed;
+
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -5,7 +23,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: radial-gradient(circle, rgba(17,17,18,0.992) 0%, rgba(23,23,38,1) 35%, rgba(37,88,99,1) 100%);
     --foreground: #ededed;
   }
 }

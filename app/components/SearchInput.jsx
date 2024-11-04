@@ -7,7 +7,6 @@ import { useDebounce } from 'use-debounce';
 import { useEffect, useState } from "react";
 
 function Search(){
-    
     const newPathname = '/ShopLayout';
     const [text, setText] = useState('');
     const [debouncedText] = useDebounce(text, 1000);
@@ -32,10 +31,10 @@ function Search(){
     },[debouncedText])
     return(
         <div className='search-Div'>
-            <input         
+            <input
             onChange={(e) => {
             setText(e.target.value);
-        }} 
+        }}
         placeholder='Search...' className='search-input'
         defaultValue={searchParamsGlobal.get('query')?.toString()}/>
             <button id='search-button'><Image src={searchIcon} alt="" /></button>

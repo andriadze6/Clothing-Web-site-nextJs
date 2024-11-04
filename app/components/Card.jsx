@@ -3,7 +3,6 @@ import '../assets/css/shopLayout.css'
 import Image from "next/image";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart as faHeartOutline } from '@fortawesome/free-regular-svg-icons';
-import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 

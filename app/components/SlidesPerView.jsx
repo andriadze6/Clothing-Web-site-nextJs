@@ -50,7 +50,7 @@ export default function Slider(props) {
                                     style={{
                                         flex: `0 0 calc(100% / ${sliderToShow})`
                                     }}
-                                    key={elemnt.id} // Fix key warning
+                                    key={elemnt.id} 
                                     className={`slider${index} img1`}
                                 >
                                     <Card Product={elemnt}></Card>

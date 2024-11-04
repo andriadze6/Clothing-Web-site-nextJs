@@ -18,7 +18,7 @@ async function HomePage(){
     return(
         <>
             <div className="homePage-Div">
-                <MainSwiper></MainSwiper>
+                <MainSwiper data={data[0]}></MainSwiper>
                 <Trending props={data}></Trending>
             </div>   
         </>

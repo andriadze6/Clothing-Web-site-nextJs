@@ -98,3 +98,7 @@
 .product_rating li:hover{
     color: #98cddf;
 }
+.SortProductDiv{
+    display: flex;
+    gap: 10px;
+}
